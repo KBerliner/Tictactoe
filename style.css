@@ -1,0 +1,37 @@
+body {
+    background-color: #3f1f1f;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 4px;
+    background-color: black;
+}
+
+.square {
+    background-color:antiquewhite;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    font-size: 60px;
+    color: black;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square__letter--1x, .square__letter--1o, .square__letter--2x, .square__letter--2o, .square__letter--3x, .square__letter--3o, .square__letter--4x, .square__letter--4o, .square__letter--5x, .square__letter--5o, .square__letter--6x, .square__letter--6o, .square__letter--7x, .square__letter--7o, .square__letter--8x, .square__letter--8o, .square__letter--9x, .square__letter--9o {
+    display: none;
+}
+
+.square:hover {
+    background-color: rgb(206, 191, 172);
+}
