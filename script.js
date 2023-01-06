@@ -51,3 +51,10 @@ const turnCount = function (squareIndex) {
     console.log(turn);
 }
 
+const reset = function () {
+    console.log('Reset Initiated');
+    for (i = 1; i < allSquares.length + 1; i++) {
+        document.getElementsByClassName(`square__letter--${i}x`)[0].style.display = '';
+        document.getElementsByClassName(`square__letter--${i}o`)[0].style.display = '';
+    }
+}
