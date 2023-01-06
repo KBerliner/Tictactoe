@@ -8,6 +8,12 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
+    <div class="x-win-screen win-screen">
+        <h2 class="x-win-screen__text">X Wins!</h2>
+    </div>
+    <div class="o-win-screen win-screen">
+        <h2 class="o-win-screen__text">O Wins!</h2>
+    </div>
     <div class="grid-container">
         <div class="square square--1" onclick="turnCount(1)">
             <p class="square__letter square__letter--1 square__letter--1x">X</p>
@@ -48,6 +54,9 @@
     </div>
     <button class="reset-btn" onclick="reset()">
         Reset
+    </button>
+    <button class="reset-btn" onclick="falseWin('o')">
+        False Win Test
     </button>
     <script src="./script.js"></script>
 </body>

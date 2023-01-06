@@ -64,5 +64,11 @@ const reset = function () {
 // This will be the function that sees if a player has won yet, this will later be placed in the 'turnCount' function, so that it is checked every turn.
 
 const win = function () {
-    
+
+}
+
+// False win for testing
+
+const falseWin = function (player) {
+    document.getElementsByClassName(`${player}-win-screen`)[0].style.display = 'block';
 }
