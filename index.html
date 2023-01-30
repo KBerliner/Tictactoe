@@ -15,6 +15,10 @@
         <h2 class="o-win-screen__text">O Wins!</h2>
     </div>
     <div class="grid-container">
+        <div class="square square--0" onclick="turnCount(0)">
+            <p class="square__letter square__letter--0 square__letter--0x">X</p>
+            <p class="square__letter square__letter--0 square__letter--0o">O</p>
+        </div>
         <div class="square square--1" onclick="turnCount(1)">
             <p class="square__letter square__letter--1 square__letter--1x">X</p>
             <p class="square__letter square__letter--1 square__letter--1o">O</p>
@@ -47,12 +51,8 @@
             <p class="square__letter square__letter--8 square__letter--8x">X</p>
             <p class="square__letter square__letter--8 square__letter--8o">O</p>
         </div>
-        <div class="square square--9" onclick="turnCount(9)">
-            <p class="square__letter square__letter--9 square__letter--9x">X</p>
-            <p class="square__letter square__letter--9 square__letter--9o">O</p>
-        </div>
     </div>
-    <button class="reset-btn" onclick="reset()">
+    <button class="reset-btn" onclick="reset('o')">
         Reset
     </button>
     <button class="reset-btn" onclick="falseWin('o')">
