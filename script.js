@@ -5,36 +5,52 @@
 let count = 1;
 let turn = true;
 const allSquares = document.getElementsByClassName("square");
+const xWin = document.getElementsByClassName('x-win-screen')[0];
+const oWin = document.getElementsByClassName('o-win-screen')[0];
 console.log(allSquares);
 
 let gridArray = [null, null, null, null, null, null, null, null, null];
 
+let winScreen = function (player) {
+    setTimeout(() => {
+        document.getElementsByClassName(`${player}-win-screen`)[0].style.display = 'block';
+    }, 1000);
+}
+
 function winAcross (i) {
     if (gridArray[i] == true && gridArray[i + 1] == true && gridArray[i + 2] == true) {
         console.log('x win');
+        winScreen('x');
     } else if (gridArray[i] == false && gridArray[i + 1] == false && gridArray[i + 2] == false) {
         console.log('o win');
+        winScreen('o');
     };
 }
 
 function winDown (i) {
     if (gridArray[i] == true && gridArray[i + 3] == true && gridArray[i + 6] == true) {
         console.log('x win');
+        winScreen('x');
     } else if (gridArray[i] == false && gridArray[i + 3] == false && gridArray[i + 6] == false) {
         console.log('o win');
+        winScreen('o');
     }
 }
 
 function winDaigonal () {
     if (gridArray[0] == true && gridArray[4] == true && gridArray[8] == true) {
         console.log('x win');
+        winScreen('x');
     } else if (gridArray[0] == false && gridArray[4] == false && gridArray[8] == false) {
-        console.log('o win')
+        console.log('o win');
+        winScreen('o');
     }
     if (gridArray[2] == true && gridArray[4] == true && gridArray[6] == true) {
         console.log('x win');
+        winScreen('x');
     } else if (gridArray[2] == false && gridArray[4] == false && gridArray[6] == false) {
         console.log('o win');
+        winScreen('o');
     }
 }
 
@@ -49,9 +65,7 @@ function ifWin () {
 }
 
 
-let winScreen = function (player) {
-    return document.getElementByClassName(`${player}-win-screen`)[0].style.display = 'block';
-}
+
 
 let winning = function (currentIndex, player) {
         // console.log(`The length of allSquares is ${allSquares.length}.`)
@@ -142,7 +156,8 @@ const reset = function (winner) {
     console.log('Reset Initiated');
     count = 1;
     turn = true;
-    document.getElementsByClassName(`${winner}-win-screen`)[0].style.display = 'none';
+    xWin.style.display = 'none';
+    oWin.style.display = 'none';
     for (i = 0; i < allSquares.length; i++) {
         document.getElementsByClassName(`square__letter--${i}x`)[0].style.display = '';
         document.getElementsByClassName(`square__letter--${i}o`)[0].style.display = '';
@@ -150,16 +165,9 @@ const reset = function (winner) {
     gridArray = [null, null, null, null, null, null, null, null, null];
 }
 
-// This will be the function that sees if a player has won yet, this will later be placed in the 'turnCount' function, so that it is checked every turn.
-
-
-// I can't remember how this works now but look up if you can use MAPPING with this on the array.
-const win = function () {
-
-}
-
 // False win for testing
 
-const falseWin = function (player) {
-    document.getElementsByClassName(`${player}-win-screen`)[0].style.display = 'block';
-}
+// const falseWin = function (player) {
+//     let screen = `${player}-win-screen`;
+//     screen[0].style.display = 'block';
+// }
