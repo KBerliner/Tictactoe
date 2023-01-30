@@ -24,7 +24,7 @@ body {
     color: white;
 }
 
-.x-win-screen__text, .o-win-screen__text {
+.x-win-screen__text, .o-win-screen__text, .draw-screen__text {
     padding-top: 10vh;
     font-size: 48px;
     font-weight: 700;
