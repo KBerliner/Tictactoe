@@ -7,6 +7,7 @@ let turn = true;
 const allSquares = document.getElementsByClassName("square");
 const xWin = document.getElementsByClassName('x-win-screen')[0];
 const oWin = document.getElementsByClassName('o-win-screen')[0];
+const draw = document.getElementsByClassName('draw-screen')[0];
 const winBar = document.getElementsByClassName('winbar')[0];
 
 let gridArray = [null, null, null, null, null, null, null, null, null];
@@ -100,6 +101,11 @@ function ifWin () {
     winDown(1);
     winDown(2);
     winDaigonal();
+    if (gridArray.includes(null)) {
+    } else {
+        console.log('Draw!');
+        draw.style.display = 'block';
+    }
 }
 
 
@@ -196,6 +202,7 @@ const reset = function (winner) {
     turn = true;
     xWin.style.display = 'none';
     oWin.style.display = 'none';
+    draw.style.display = 'none';
     for (i = 0; i < allSquares.length; i++) {
         document.getElementsByClassName(`square__letter--${i}x`)[0].style.display = '';
         document.getElementsByClassName(`square__letter--${i}o`)[0].style.display = '';
