@@ -7,32 +7,60 @@ let turn = true;
 const allSquares = document.getElementsByClassName("square");
 const xWin = document.getElementsByClassName('x-win-screen')[0];
 const oWin = document.getElementsByClassName('o-win-screen')[0];
-console.log(allSquares);
+const winBar = document.getElementsByClassName('winbar')[0];
 
 let gridArray = [null, null, null, null, null, null, null, null, null];
 
 let winScreen = function (player) {
+    
     setTimeout(() => {
         document.getElementsByClassName(`${player}-win-screen`)[0].style.display = 'block';
     }, 1000);
 }
 
+// function winBarRotate () {
+//     winBar.style.transform = 'rotate(90deg)'
+//     // setTimeout(() => {
+//         winBar.style.transition = 'all ease-in-out 250ms';
+//         // winBar.style.transform = 'scaleX(1) rotate(90deg)';
+//     // }, 250);
+// }
+
 function winAcross (i) {
+    let barDown = (33 + (3.5 * i));
     if (gridArray[i] == true && gridArray[i + 1] == true && gridArray[i + 2] == true) {
         console.log('x win');
+        winBar.style.top = `${barDown}vh`;
+        winBar.style.animation = 'grow 250ms both alternate';
         winScreen('x');
     } else if (gridArray[i] == false && gridArray[i + 1] == false && gridArray[i + 2] == false) {
         console.log('o win');
+        winBar.style.top = `${barDown}vh`;
+        winBar.style.animation = 'grow 250ms both alternate';
         winScreen('o');
     };
 }
 
 function winDown (i) {
+    let barAcross = (41 + (9 * i));
     if (gridArray[i] == true && gridArray[i + 3] == true && gridArray[i + 6] == true) {
         console.log('x win');
+        winBar.style.top = '29vh';
+        winBar.style.left = `${barAcross}vw`;
+        winBar.style.animation = 'growtate90 250ms both alternate';
+        // winBar.classList.add('rotate90');
+        // winBar.style.transform = 'rotate(90deg)';
+        // winBar.style.transform = 'scaleX(1) rotate(90deg)';
+        // winBar.style.transition = 'all ease-in-out 0ms';
+        // winBarRotate();
+        // winBar.style.transform = 'scaleX(1) rotate(90deg)';
+        
         winScreen('x');
     } else if (gridArray[i] == false && gridArray[i + 3] == false && gridArray[i + 6] == false) {
         console.log('o win');
+        winBar.style.top = '29vh';
+        winBar.style.left = `${barAcross}vw`
+        winBar.style.animation = 'growtate90 250ms both alternate';
         winScreen('o');
     }
 }
@@ -40,16 +68,26 @@ function winDown (i) {
 function winDaigonal () {
     if (gridArray[0] == true && gridArray[4] == true && gridArray[8] == true) {
         console.log('x win');
+        winBar.style.top = '29vh'
+        winBar.style.animation = 'growtate45 250ms both alternate';
         winScreen('x');
     } else if (gridArray[0] == false && gridArray[4] == false && gridArray[8] == false) {
         console.log('o win');
+        winBar.style.top = '29vh'
+        winBar.style.animation = 'growtate45 250ms both alternate';
         winScreen('o');
     }
     if (gridArray[2] == true && gridArray[4] == true && gridArray[6] == true) {
         console.log('x win');
+        winBar.style.top = '29vh';
+        winBar.style.left = '62vw';
+        winBar.style.animation = 'growtate135 250ms both alternate';
         winScreen('x');
     } else if (gridArray[2] == false && gridArray[4] == false && gridArray[6] == false) {
         console.log('o win');
+        winBar.style.top = '29vh';
+        winBar.style.left = '61vw';
+        winBar.style.animation = 'growtate135 250ms both alternate';
         winScreen('o');
     }
 }
@@ -163,6 +201,9 @@ const reset = function (winner) {
         document.getElementsByClassName(`square__letter--${i}o`)[0].style.display = '';
     }
     gridArray = [null, null, null, null, null, null, null, null, null];
+    winBar.style.animation = 'none';
+    winBar.style.top = '29vh';
+    winBar.style.left = '38vw';
 }
 
 // False win for testing
