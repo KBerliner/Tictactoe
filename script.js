@@ -81,13 +81,13 @@ function winDaigonal () {
     if (gridArray[2] == true && gridArray[4] == true && gridArray[6] == true) {
         console.log('x win');
         winBar.style.top = '29vh';
-        winBar.style.left = '62vw';
+        winBar.style.left = '62%';
         winBar.style.animation = 'growtate135 250ms both alternate';
         winScreen('x');
     } else if (gridArray[2] == false && gridArray[4] == false && gridArray[6] == false) {
         console.log('o win');
         winBar.style.top = '29vh';
-        winBar.style.left = '61vw';
+        winBar.style.left = '62%';
         winBar.style.animation = 'growtate135 250ms both alternate';
         winScreen('o');
     }
